@@ -72,7 +72,7 @@ def simulate_diploid_genotypes(sample_size, sequence_length, mutation_rate, reco
     - recombination_rate: The recombination rate per base pair per generation.
     
     Returns:
-    - Genotype matrix of shape (sample_size, num_variants)
+    - Genotype matrix of shape (number of variants, sample_size)
     """
     
     # Simulate
