@@ -74,8 +74,6 @@ def simulate_diploid_genotypes(sample_size, sequence_length, mutation_rate, reco
     Returns:
     - Genotype matrix of shape (number of variants, sample_size)
     """
-    
-    # Simulate
     tree_sequence = msprime.simulate(
         sample_size=2 * sample_size,  # Account for both copies of the chromosome
         length=sequence_length,
