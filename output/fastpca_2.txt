@@ -1,6 +1,6 @@
 \begin{tabular}{rrrr}
 \toprule
-n & sequence_length & mut_rate & Value \\
+n & sequence_length & mut_rate & FastPCA \\
 \midrule
 50 & 10000 & 0.00 & 0.90 \\
 50 & 100000 & 0.00 & 0.47 \\
