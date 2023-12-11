@@ -109,18 +109,23 @@ def count_genotypes(G: np.array):
 
     return (zeros, ones, twos)
 
-def compute_prop_variance(lambda_i: float, S: np.array):
+def compute_prop_variance(pcs: np.array, data: np.array):
     """ 
     Computes the proportion of total variance explained by the ith principal component.
 
     Inputs:
-    - S (2D numpy array): covariance matrix 
-    - lambda_i (float): ith eigenvalue of S
+    - pcs (2D numpy array): top k principal components
+    - data (2D numpy array): the original dataset
 
     Returns:
-    - proportion of total variance explained by principal component i
+    - proportion of total variance explained by pcs
     """
-    return lambda_i/np.trace(S)
+    total_variance = np.var(data, axis = 0).sum()
+
+    # Compute variance of data when projected onto pcs
+    projected_variance = np.var(data @ pcs, axis = 0).sum()
+
+    return projected_variance/total_variance 
 
 def compute_pc_from_svd(i: int, A: np.array, VT: np.array):
     """ 
