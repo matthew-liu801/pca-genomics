@@ -120,8 +120,6 @@ def pca_arsvd(X, k, dstar):
 
     
     # Compute top k pcs
-    Xtilde = center_X(X)
-
     pcs = []
 
     if transpose:
@@ -221,7 +219,8 @@ def benchmark_1000_genomes(f: Callable, k: int, data: np.array, *args):
 
 if __name__ == "__main__":
     # Load data
-    G = np.load("../processed_data/real/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.npz")['arr_0']
+    G = np.load("processed_data/real/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.npz")['arr_0']
+    G = np.array(G, dtype = np.float16)
 
     # Values for k
     k_vals = [2, 3, 5, 10]
