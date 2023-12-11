@@ -120,10 +120,10 @@ def compute_prop_variance(pcs: np.array, data: np.array):
     Returns:
     - proportion of total variance explained by pcs
     """
-    total_variance = np.var(data, axis = 0).sum()
+    total_variance = np.trace(np.cov(data, rowvar = False))
 
     # Compute variance of data when projected onto pcs
-    projected_variance = np.var(data @ pcs, axis = 0).sum()
+    projected_variance = np.trace(np.cov(data @ pcs, rowvar=False))
 
     return projected_variance/total_variance 
 
